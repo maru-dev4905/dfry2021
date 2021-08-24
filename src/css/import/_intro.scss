@@ -1,0 +1,169 @@
+#introTrigger1{
+    position: relative;
+    top: 30vh;
+}
+#introTrigger2{
+    position: relative;
+    top: 50vh;
+}
+.intro-slide{
+    grid-column: 1/33;
+    position: relative;
+    // margin-bottom: 450px;
+
+    .intro-slide-item{
+        li{
+            overflow: visible;
+            width: max-content;
+            
+            &:nth-child(odd){
+                animation: slide1 12.5s linear infinite;
+            }
+            &:nth-child(even){
+                animation: slide2 19s linear infinite;
+                transform: translateZ(-100vw,0,0);
+            }
+        }
+        span{
+            font-size: 156px;
+            font-size: 6.0938vw;
+            color: transparent;
+            -webkit-text-stroke: 1px #fff;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            font-family: "circular-book";
+            line-height: 0.95em;
+
+            &::before{
+                content: "";
+                display: inline-block;
+                width: 81px;
+                height: 13px;
+                border: 1px solid #fff;
+                background-color: transparent;
+                margin: 0 0.2em 0 0.3em;
+            }
+            span{
+                &::before{
+                    display: none;
+                }
+            }
+            &.italic{
+                font-family: "saoldisplay";
+                font-style: italic;
+                padding-bottom: 32px;
+            }
+        }
+    }
+}
+.intro-scroll{
+    grid-column: 4/30;
+    position: relative;
+
+    #drawing{
+        height: 200vh;
+        position: relative;
+    }
+
+    #cont-po{
+        margin: 0 auto;
+        width: 100%;
+        height: calc(var(--vh, 1vh) * 100);
+        position: absolute;
+        top: 50vh;
+        z-index: 5;
+        
+        .intro-title-img-wrap{
+            position: absolute;
+            top: 60%;
+            right: 0;
+            left: 0;
+            margin: auto;
+            width: 26.1719vw;
+            transition: 1s ease;
+            opacity: 0;
+            transform: translateY(-50%);
+            img{
+                display: block;
+                width: 100%;
+            }
+        }
+        &.show{
+            .intro-title-img-wrap{
+                top: 50%;
+                opacity: 1;
+            }
+        }
+    }
+    .intro-title-text{
+        h2{
+            font-size: 14.0625vw;
+            font-family: "circular-medium";
+            font-weight: 400;
+            text-align: center;
+            line-height: 1.25em;
+            position: relative;
+
+            &:nth-child(odd){
+                color: #fff;
+                z-index: 5;
+            }
+            &:nth-child(even){
+                color: #000;
+                text-shadow: 1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+                z-index: 15;
+            }
+        }
+    }
+}
+.intro-tag{
+    grid-column: 1/33;
+    position: relative;
+    height: 200vh;
+
+    .intro-tag-wrap{
+        height: 100%;
+        li{
+            position: absolute;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            overflow: visible;
+            width: max-content;
+
+            h2{
+                font-size: 8.2031vw;
+                font-family: circular-bold;
+                line-height: 1;
+                text-transform: uppercase;
+                vertical-align: middle;
+                padding: 0.75vw 2vw 0;
+            }
+
+            &:nth-child(1){
+                top: 40vw;
+                transform: rotate(-5deg);
+                z-index: 20;
+            }
+            &:nth-child(2){
+                top: 32vw;
+                left: -7vw;
+                transform: rotate(5deg);
+                z-index: 15;
+            }
+            &:nth-child(3){
+                top: 21vw;
+                left: 1.5vw;
+                transform: rotate(-25deg);
+                z-index: 10;
+            }
+            &:nth-child(4){
+                top: 16vw;
+                left: -10vw;
+                transform: rotate(15deg);
+                z-index: 5;
+            }
+        }
+    }
+}
