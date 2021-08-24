@@ -1,0 +1,202 @@
+@import "../../common/variable";
+@import "../../common/mixin";
+
+.loading{
+    width: 100vw;
+    height: 100vh;
+    background-color: $red;
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    z-index: 9999999999999999999;
+    transition-duration: 0.75s;
+    transition-timing-function: cubic-bezier(.215,.61,.355,1);
+
+    &.active{
+        top: 0;
+    }
+    ul{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50%;
+        left: 8.203vw;
+        transform: translateY(-50%);
+
+        @include responsive("768"){
+            left: 0;
+            padding: 0;
+            padding: 0 20px;
+        }
+        @include responsive("500"){
+            left: 0;
+            padding: 0;
+            padding: 0 20px;
+        }
+    }
+    li{
+        display: flex;
+        align-items: flex-start;
+
+        @include responsive("768"){
+            margin-bottom: 10px;
+        }
+        @include responsive("500"){
+            margin-bottom: 10px;
+            &:first-child{
+                width: 70vw;
+                justify-content: space-between;
+            }
+        }
+       
+        span{
+            font-size: 6.250vw;
+            line-height: 6.016vw;
+            font-family: "NHaasGrotesk-regular";
+            font-weight: 400;
+            color: $white;
+            text-transform: uppercase;
+            margin-right: 1.563vw;
+            width: max-content;
+            height: 6.055vw;
+            overflow: hidden;
+            opacity: 0;
+            transition-duration: 1s;
+            transition-timing-function: cubic-bezier(.215,.61,.355,1);
+
+            @include responsive("768"){
+                font-size: 9.600vw;
+                height: 7.600vw;
+                line-height: 7.600vw;
+                margin-right: 15px;
+            }
+            @include responsive("500"){
+                font-size: 9.600vw;
+                height: 7.600vw;
+                line-height: 7.600vw;
+                margin-right: 15px;
+                letter-spacing: -0.4px;
+            }
+            &.wrap1{transition-delay: 0.45s;
+                @include responsive("500"){
+                    overflow: visible;
+                }
+            }
+            &.wrap2{transition-delay: 0.15s;}
+            &.wrap3{transition-delay: 0.3s;}
+            &.wrap4{transition-delay: 0s}
+
+            &.show{
+                opacity: 1;
+            }
+            &>span{
+                margin-right: 0;
+                display: block;
+                transition-duration: 1s;
+                transition-timing-function: cubic-bezier(.215,.61,.355,1);
+                opacity: 1;
+
+                &.hide{
+                    opacity: 0;
+                    transform: translateY(100%);
+                    
+                }
+                &.text1{transition-delay: 0.15s;
+                    @include responsive("500"){
+                        position: absolute;
+                        left: 39vw;
+                    }
+                }
+                &.text2{transition-delay: 0.30s}
+                &.text3{transition-delay: 0.45s;}
+                &.text4{transition-delay: 0.45s;}
+            }
+        }
+    }
+    .loading-number{
+        width: 13.086vw;
+        transform: translateY(10px);
+        margin-right: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        
+        opacity: 1;
+        animation: fadeOut 0.5s ease forwards;
+
+        @include responsive("768"){
+            margin-right: 20px;
+            width: 25vw;
+            justify-content: start;
+            transform: translateY(0);
+        }
+        @include responsive("500"){
+            margin-right: 20px;
+            width: max-content;
+            justify-content: start;
+            transform: translateY(0);
+            position: absolute;
+        }
+        span{
+            font-size: 1.563vw;
+            font-family: "NHaasGrotesk-regular";
+            font-weight: 400;
+            color: $white;
+            font-style: italic;
+            vertical-align: top;
+            line-height: 1;
+            margin-right: 15px;
+            overflow: visible;
+            opacity: 1;
+            transition-duration: 1s;
+            transition-timing-function: cubic-bezier(.215,.61,.355,1);
+
+            @include responsive("768"){
+                font-size: 20px;
+            }
+            @include responsive("500"){
+                font-size: 20px;
+            }
+        }
+        &.show{
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+    }
+    p{
+        width: 23.047vw;
+        margin-top: 80px;
+        font-size: 18px;
+        font-family: "NHaasGrotesk-regular";
+        font-weight: 400;
+        color: #f9eae4;
+        line-height: 23px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        opacity: 1;
+        animation: fadeOut 0.75s ease forwards;
+
+        &.show{
+            opacity: 0;
+            animation: fadeIn 0.5s 0.75s ease forwards;
+        }
+        @include responsive("768"){
+            width: 280px;
+            justify-content: flex-end;
+            margin-top: 30px;
+        }
+        @include responsive("500"){
+            // width: 80vw;
+            justify-content: flex-end;
+            margin-top: 13px;
+            padding-right: 20px;
+            font-size: 3.400vw;
+            position: relative;
+            width: max-content;
+            left: 35vw;
+            line-height: 18px;
+            letter-spacing: -0.4px;
+        }
+    }
+}

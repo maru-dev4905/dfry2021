@@ -42,8 +42,6 @@
     "uglifyify": "^5.0.2"
   },
   "dependencies": {
-    "gsap": "^3.6.0",
-    "locomotive-scroll": "^4.0.6",
-    "scrollmagic": "^2.0.8"
+    "locomotive-scroll": "^4.0.6"
   }
 }

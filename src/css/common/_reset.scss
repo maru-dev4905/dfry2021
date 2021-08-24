@@ -1,3 +1,4 @@
+@import "./variable";
 /* Box sizing rules */
 *,
 *::before,
@@ -80,6 +81,7 @@ button{
   background-color: transparent;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 a{
   text-decoration: none;
@@ -91,13 +93,37 @@ ul li{
 
 #page-wrap{
   width: 100vw;
-  display: grid;
-  grid-template-columns: repeat(32,1fr);
+  position: relative;
+  transition: 0.5s;
+
+  &.ivory{
+    background-color: $ivory;
+  }
+  &.red{
+    background-color: $red;
+  }
 }
-*{
-  font-size: 16px;
+#page-move{
+  position: fixed;
+  top: 0;
+  left: 100vw;
+  z-index: 999999999999999999999990999998898989898;
+  overflow: hidden;
+  background-color: $red;
+  width: 100%;
+  height: 100%;
+  transition-duration: 0.75s;
+  transition-timing-function: cubic-bezier(.215,.61,.355,1);
+}
+.page-sub{
+  position: relative;
+  top: 0;
+  width: 100vw;
+  transition: 0.5s;
 }
 body{
-  background-color: #141414;
   overflow-x: hidden;
+}
+.c-scrollbar_thumb{
+  width: 0 !important;
 }

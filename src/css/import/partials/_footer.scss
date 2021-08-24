@@ -1,0 +1,85 @@
+@import "../../common/variable";
+@import "../../common/mixin";
+
+footer{
+    padding: 0 #{$inner-2560} 50px;
+    margin: 0 auto;
+    @include responsive("1920"){
+        padding: 0 #{$inner-1920};
+    }
+    @include responsive("768"){
+        padding: 0 #{$inner-500};
+    }
+    @include responsive("500"){
+        padding: 0 #{$inner-500};
+        padding-bottom: 52px;
+    }
+
+    .foot-text{
+        display: flex;
+        justify-content: space-between;
+    }
+    span{
+        width: 100%;
+        height: 1px;
+        background-color: $red;
+        margin-bottom:  15px;
+        display: block;
+
+        @include responsive("768"){
+            margin-bottom: 10px;
+        }
+        @include responsive("500"){
+            margin-bottom: 10px;
+        }
+    }
+    p{
+        font-size: 16px;
+        font-family: "NHaasGrotesk-regular";
+        font-weight:400;
+        color: $red;
+        padding-bottom: 40px;
+
+        @include responsive("1920"){
+            font-size: 12px;
+            padding-bottom: 104px;
+        }
+        @include responsive("768"){
+            padding-bottom: 10px;
+        }
+        @include responsive("500"){
+            padding-bottom: 10px;
+            font-size: 14px;
+        }
+    }
+    .foot-sns{
+        display: none;
+        a{
+            width: 49px;
+            height: 49px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+        i{
+            width: 100%;
+            height: 100%;
+        }
+        li{
+            margin-left: 10px;
+        }
+        li:nth-child(1) i{
+            background: url("../images/icon/ico-inst-mo.png") no-repeat center / cover;
+        }
+        li:nth-child(2) i{
+            background: url("../images/icon/ico-face-mo.png") no-repeat center / cover;
+        }
+        @include responsive("768"){
+            display: flex;
+        }
+        @include responsive("500"){
+            display: flex;
+        }
+    }
+}

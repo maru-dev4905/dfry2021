@@ -1,73 +1,325 @@
-header{
-    grid-column: 1/33;
-    padding: 70px 92px 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    margin-bottom: 170px;
-    
-    .header-left{
-        display: flex;
-        position: fixed;
-        left: 92px;
+@import "../../common/variable";
+@import "../../common/mixin";
 
-        .hambuger-btn{
+header{
+    width: 100vw;
+    padding: 2.422vw 3.750vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999999;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: 0.5s;
+
+    @include responsive("1920"){
+        padding: 2.813vw 3.802vw;
+    }
+    @include responsive("768"){
+        padding: 45px 40px;
+        align-items: flex-start;
+    }
+    @include responsive("500"){
+        padding: 15px 5.200vw;
+        align-items: center;                                          
+    }
+
+    &.sub{
+        .logo{
+            animation: fadeIn-down 0.5s ease forwards;
+        }
+        .gnb a{
+            animation: fadeIn-down 0.5s ease forwards;
+        }
+        .hambuger-open-btn{
+            animation: fadeIn-down 0.5s ease forwards;
+        }
+    }
+    .logo{
+        width: 38px;
+        height: 81px;
+        opacity: 0;
+        animation: fadeIn-down 0.5s 5.5s ease forwards;
+        
+        @include responsive("1920"){
+            width: 31px;
+            height: 62px;
+        }
+        @include responsive("768"){
+            width: 39px;
+            height: 54px;
+        }
+        @include responsive("500"){
+            width: 37px;
+            width: 7.400vw;
+            height: 33px;
+        }
+        a{
             position: relative;
+            width: 38px;
+            height: 81px;
+            display: block;
+
+            &.mo{
+                display: none;
+                width: 37px;
+                width: 7.400vw;
+                height: 33px;
+            }
+            @include responsive("1920"){
+                width: 31px;
+                height: 62px;
+            }
+            @include responsive("768"){
+                display: none;
+                &.mo{
+                    display: block;
+                }
+            }
+            @include responsive("500") {
+                display: none;
+                &.mo{
+                    display: block;
+                }
+            }
+        }
+        img{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity:1;
+            transition: 0.5s ease;
+
+            &:nth-child(2){
+                opacity: 0;
+            }
+        }
+    }
+
+    nav{
+        display: flex;
+        align-items: center;
+    }
+    .gnb{
+        display: flex;
+        align-items: center;
+        margin-right: 3.320vw;
+        transition: 0.5s ease;
+
+        @include responsive("1920"){
+            margin-right: 67px;
+        }
+        @include responsive("1024"){
+            margin-right: 34px;
+        }
+        @include responsive("768"){
+            display: none;
+        }
+        @include responsive("500"){
+            display: none;
+        }
+
+        li{
+            display: flex;
+            align-items: center;
+
+            &:last-child a{
+                padding-right: 0;
+            }
+        }
+        a{
+            font-size: 16px;
+            font-family: "NeueHaasUnica";
+            color: $red;
+            transition: 0.3s ease;
+            padding: 0 33px;
+            opacity: 0;
+            animation: fadeIn-down 0.5s 5.5s ease forwards;
+            font-weight: 700;
+            width: max-content;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            width: 16px;
-            height: 17px;
-            margin-right: 29px;
-            cursor: pointer;
-            font-size: 0;
-            padding: 0;
+            height: 30px;
+            overflow: hidden;
+
+            @include responsive("1920"){
+                font-size: 12px;
+                padding: 0 23px;
+                height: 22px;
+            }
 
             span{
-                display: block;
-                background-color: #fff;
-                width: 16px;
+                transition: 0.5s ease;
+            }
+            &:hover{
+                span{
+                    transform: translateY(-21px);
+                    @include responsive("1920"){
+                        transform: translateY(-16px);
+                    }
+                    @include responsive("1024"){
+                        transform: translateY(-16px);
+                    }
+                }
+            }
+            @include responsive("1024"){
+                padding: 0 11.5px;
+                font-size: 12px;
+            }
+        }
+        &.hide{
+            opacity: 0;
+            transform: translateY(-50px) translateY(2px);
+        }
+    }
+    
+    .hambuger-open-btn{
+        width: 30px;
+        height: 18px;
+        padding: 0;
+        position: relative;
+        opacity: 0;
+        animation: fadeIn-down 0.5s 5.5s ease forwards;
+        
+        @include responsive("1920"){
+            width: 22px;
+            height: 13px;
+        }
+        @include responsive("500"){
+            width: 34px;
+            width: 6.800vw;
+            height: 21px;
+            height: 4.200vw;
+        }
+        span{
+            width: 100%;
+            height: 2px;
+            background-color: $red;
+            display: block;
+            position: absolute;
+            transition: 0.5s ease;
+            
+            &:nth-child(1){
+                top: 0;
+            }
+            &:nth-child(2){
+                top: 8px;
+                @include responsive("1920"){
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+            &:nth-child(3){
+                bottom: 0;
+                width: 13px;
+            }
+            @include responsive("500"){
                 height: 2px;
+            }
+        }
+        &.active{
+            span{
+                transition: 0.5s ease;
+                &:nth-child(1){
+                    transform: translateY(8px) rotate(45deg);
+                    
+                    @include responsive("500"){
+                        transform: translateY(1.600vw) rotate(45deg);
+                    }
+                }
+                &:nth-child(2){
+                    opacity: 0;
+                }
+                &:nth-child(3){
+                    width: 100%;
+                    transform: translateY(-8px) rotate(-45deg);
 
-                &:last-child{
-                    width: 5px;
+                    @include responsive("1920"){
+                        transform: translateY(-3px) rotate(-45deg);
+                    }
+                    @include responsive("500"){
+                        transform: translateY(-1.800vw) rotate(-45deg);
+                    }
                 }
             }
         }
     }
-    .header-right{
-        ul{
-            display: flex;
-            align-items: flex-start;
-            margin: 0;
+    &.show{
+        .gnb{
+            span{
+                opacity: 1;
+                transform: scaleX(1) translateY(2px);
+            }
         }
-        li{
-            font-size: 18px;
-            font-family: "circular-book";
-            margin-right: 22px;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            
-            &::after{
-                content: "";
-                width: 38px;
-                height: 1px;
-                display: inline-block;
-                background-color: #fff;
-                margin-left: 22px;
-            }
-            &:last-child{
-                margin-right: 0;
-            }
-            &:last-child::after{
-                display: none;
-            }
+    }
+
+    &.ivory{
+        .logo{
             a{
-                transition: 0.5s ease;
-                &:hover{
-                    opacity: 0.6;
+                img{
+                    opacity: 0;
+                    &:nth-child(2){
+                        opacity: 1;
+                    }
                 }
+            }
+        }
+        .gnb{
+            a{
+                color: $ivory;
+            }
+        }
+        .hambuger-open-btn{
+            span{
+                background-color: $ivory;
+            }
+        }
+    }
+    &.red{
+        .logo{
+            a{
+                img{
+                    opacity: 1;
+                    &:nth-child(2){
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+        .gnb{
+            a{
+                color: $red;
+            }
+            span{
+                background-color: $red;
+            }
+        }
+        .hambuger-open-btn{
+            span{
+                background-color: $red;
+            }
+        }
+    }
+    &.menu-ivory{
+        .logo{
+            a{
+                img{
+                    opacity: 0;
+                    &:nth-child(2){
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        .gnb{
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        .hambuger-open-btn{
+            span{
+                background-color: $ivory;
             }
         }
     }

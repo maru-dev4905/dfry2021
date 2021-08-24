@@ -1,5 +1,6 @@
+
 @font-face{
-    font-family: circular-black;
+    font-family: "circular-black";
     src: url("../fonts/CircularStd-Black_0.otf") format('opentype');
 }
 
@@ -71,4 +72,45 @@
 @font-face{
     font-family: "saoldisplay";
     src: url("../fonts/SaolDisplay-Regular_0.ttf") format('truetype');
+}
+
+@font-face{
+    font-family: "NeueHaasUnica";
+    src: url("../fonts/NeueHaasUnicaW1G2.otf") format('opentype');
+}
+
+@font-face{
+    font-family: "NHaasGrotesk-regular";
+    src: url("../fonts/NHaasGroteskTXPro-55Rg.ttf") format('truetype');
+}
+
+@font-face{
+    font-family: "NHaasGrotesk-medium";
+    src: url("../fonts/NHaasGroteskTXPro-65Md.ttf") format('truetype');
+}
+
+@font-face{
+    font-family: "NHaasGrotesk-bold";
+    src: url("../fonts/NHaasGroteskTXPro-75Bd.ttf") format('truetype');
+}
+
+@font-face{
+    font-family: "apple-light";
+    src: url("../fonts/AppleSDGothicNeoL.ttf") format('truetype');
+}
+@font-face{
+    font-family: "apple-medium";
+    src: url("../fonts/AppleSDGothicNeoM.ttf") format('truetype');
+}
+@font-face{
+    font-family: "apple-hevy";
+    src: url("../fonts/AppleSDGothicNeoH.ttf") format('truetype');
+}
+@font-face{
+    font-family: "apple-semibold";
+    src: url("../fonts/AppleSDGothicNeoEB.ttf") format('truetype');
+}
+@font-face{
+    font-family: "apple-bold";
+    src: url("../fonts/AppleSDGothicNeoB.ttf") format('truetype');
 }

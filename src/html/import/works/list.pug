@@ -1,0 +1,11 @@
+include ../../common/mixin
+include ../../common/variable
+
+section.works-list(data-scroll-section)
+
+    ul.list-grid 
+        button.down-btn
+            i
+        each work in works
+            +worksItem(work.href, work.src, work.alt, work.h4, work.p, work.parallax, work.big)
+        .more-content More works are comming soon...

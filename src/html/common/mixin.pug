@@ -1,0 +1,90 @@
+mixin works(imgUrl, title, content, link, bigCheck)
+    a(href=link) 
+        article(class=`port-${bigCheck}`)
+            h3(
+                data-scroll
+                data-scroll-call="splitLines"
+            )=title
+            .works-content-img(
+                data-scroll 
+                data-scroll-call="fadeIn"
+                data-scroll-offset="-20%, 100%"
+            )
+                img(
+                    src=`./images/works/${imgUrl}`, 
+                    alt="portfolio"
+                    data-scroll 
+                    data-scroll-speed="-0.3"
+                    data-scroll-delay="0.1"
+                    data-scroll-offset="-100%, -100%"
+                )
+            .works-content-bottom
+                strong(
+                    data-scroll 
+                    dat-scroll-call="fadeIn"
+                )=content
+                i(
+                    data-scroll
+                    data-scroll-call="fadeIn"
+                    data-scroll-delay="0.3"
+                ) 
+                span.works-content-line(
+                    data-scroll 
+                    data-scroll-call="scaleX"
+                ) 
+
+mixin worksItem(href, src, alt, h4, p, parallax, big)
+    if parallax
+        if big 
+            li.works-item.big(data-scroll data-scroll-speed="2")
+                a(href=href)
+                    .list-img 
+                        .list-bg.big
+                        .list-img-wrap 
+                            img(src=src, alt=alt)
+                    .list-text 
+                        .list-desc(data-scroll data-scroll-delay="0.2")
+                            h4=h4 
+                            p=p
+                        i(data-scroll data-scroll-delay="0.2")
+                        span(data-scroll)
+        else 
+            li.works-item.small(data-scroll data-scroll-speed="2")
+                a(href=href)
+                    .list-img 
+                        .list-bg.small
+                        .list-img-wrap 
+                            img(src=src, alt=alt)
+                    .list-text 
+                        .list-desc(data-scroll data-scroll-delay="0.2")
+                            h4=h4 
+                            p=p
+                        i(data-scroll data-scroll-delay="0.2")
+                        span(data-scroll)
+    else
+        if big 
+            li.works-item.big
+                a(href=href)
+                    .list-img 
+                        .list-bg.big 
+                        .list-img-wrap 
+                            img(src=src, alt=alt)
+                    .list-text 
+                        .list-desc(data-scroll data-scroll-delay="0.2")
+                            h4=h4 
+                            p=p
+                        i(data-scroll data-scroll-delay="0.2")
+                        span(data-scroll)
+        else 
+            li.works-item.small
+                a(href=href)
+                    .list-img 
+                        .list-bg.small
+                        .list-img-wrap 
+                            img(src=src, alt=alt)
+                    .list-text 
+                        .list-desc(data-scroll data-scroll-delay="0.2")
+                            h4=h4 
+                            p=p
+                        i(data-scroll data-scroll-delay="0.2")
+                        span(data-scroll)

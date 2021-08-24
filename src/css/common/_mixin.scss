@@ -1,0 +1,30 @@
+@import "./variable";
+
+// responsive mixin
+@mixin responsive($device) {
+    @if $device == "1920" {
+        @media all and (max-width: $pc-1){
+            @content;
+        }
+    } @else if $device == "1600" {
+        @media all and (max-width: $pc-2){
+            @content;
+        }
+    } @else if $device == "1280" {
+        @media all and (max-width: $pc-3){
+            @content;
+        }
+    } @else if $device == "1024" {
+        @media all and (max-width: $tablet-1){
+            @content;
+        }
+    } @else if $device == "768" {
+        @media all and (max-width: $tablet-2){
+            @content;
+        }
+    }@else if $device == "500" {
+        @media all and (max-width: $mo-1){
+            @content;
+        }
+    }
+}

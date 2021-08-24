@@ -1,0 +1,515 @@
+@import "../../common/variable";
+@import "../../common/mixin";
+
+.intro{
+    min-height: 100vh;
+    min-height: calc(var(--vh,1vh) * 100) ;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+
+    .intro-slide{
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+
+        ul{
+            position: relative;
+            width: 100vw;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            position: absolute;
+            top: 50%;
+            top: 48%;
+            transform: translateY(-50%);
+            width: 100vw;
+            
+            &.active{
+                h2{
+                    opacity: 1;
+                    visibility: visible;
+                    transition: .75s ease 1.25s;
+                }
+            }
+            @include responsive("768"){
+                top: 75vh;
+            }
+            @include responsive("500"){
+                top: 81%;
+            }
+            span.intro-slide-line{
+                width: 0;
+                height: 1px;
+                background-color: $red;
+                display: flex;
+                justify-content: center;
+                transition: 0.5s 4s linear;
+                margin: 0 auto;
+                position: relative;
+
+                &::after{
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: $ivory;
+                    opacity: 0;
+                    transition: 0.5s ease;
+                }
+            }
+            h2{
+                font-size: 8.073vw;
+                font-family: NHaasGrotesk-regular;
+                font-weight: 300;
+                white-space: nowrap;
+                color: #ff3c02;
+                display: flex;
+                align-items: center;
+                -webkit-animation: introSlideText 40s linear infinite;
+                animation: introSlideText 40s linear infinite;
+                position: relative;
+                opacity: 0;
+                visibility: hidden;
+                transition: .75s ease .5s;
+                line-height: 0;
+                padding: 5.196vw 0;
+
+                p{    
+                    margin-right: 13.802vw;
+                    opacity: 0;
+                    -webkit-animation: fadeIn .75s 1s ease forwards;
+                    animation: fadeIn .75s 1s ease forwards;
+                }
+
+                &:nth-of-type(even){
+                    justify-content: flex-end;
+                    animation: introSlideText2 40s linear infinite;
+                }
+                &.intro-slide-content p{
+                    margin-right: 55vw;
+                }
+                &.intro-slide-content{
+                    padding-left: 50vw;
+                }
+                &.hide{
+                    opacity: 0;
+                }
+                @include responsive("1600"){
+                    font-size: 8vw;
+                    padding: calc(10.625vw / 2);
+                }
+                @include responsive("1024"){
+                    font-size: 8.008vw;
+                    padding: calc(10.547vw / 2);
+                }
+                @include responsive("768"){
+                    padding: calc(22.135vw / 2) 0;
+                    font-size: 8.854vw;
+                    padding: calc(10vw / 2) 0;
+                    font-size: 5vw;
+                }
+                @include responsive("500"){
+                    padding: 8vw 0;
+                    font-size: 8.800vw;
+                }
+            }
+            &.intro-spin-wrap{
+                left: 50%;
+                transform: translate(-50%,-50%);
+                top: calc(48% + -5vw);
+                width: calc(100% - #{$inner2-2560});
+
+                .pc{
+                    display: none;
+                }
+                @include responsive("1920"){
+                    width: calc(100% - #{$inner2-1920});
+                }
+                @include responsive("768"){
+                    top: 75vh;
+                    z-index: 150;
+                    .pc{
+                        display: block;
+                    }
+                }
+                @include responsive("500"){
+                    top: 75vh;
+                    z-index: 150;
+                    width: calc(100% - 10.4vw);
+                    .pc{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .intro-box{
+        width: 26.1328vw;
+        width: 25.3516vw;
+        height: 34.3750vw;
+        position: absolute;
+        left: 50%;
+        top: 48%;
+        transform: translate(-50%,100%);
+        z-index: 100;
+        animation: introBox 0.75s 4.25s ease forwards;
+        background-color: #c7cfd6;
+        
+        @include responsive("768"){
+            width: 60vw;
+            height: 85vw;
+            top: 100px;
+            transform: translate(-50%,200%);
+        }
+        @include responsive("500"){
+            width: 75vw;
+            height: 92vw;
+            top: 90px;
+            transform: translate(-50%,200%);
+        }
+
+        div{
+            transition: 1s ease;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            &:nth-child(1){background-color: #c7cfd6;}
+            &:nth-child(2){background-color: #ecd88e;}
+            &:nth-child(3){background-color: #ddccb8;}
+            
+            &.active{
+                opacity: 1;
+            }
+        }
+    }
+    .swiper-slide-img{
+        width: 74.353vw;
+        height: 93vw;
+        position: absolute;
+        top: 72px;
+
+        @include responsive("768"){
+            width: 60vw;
+            height:70vw;
+            top: 100px;
+        }
+    }
+    @include responsive("768"){
+        .intro-img-wrap1{
+            background: url("../images/main/intro/intro-img1.png") no-repeat center / cover;
+            width: 55vw;
+        }
+        .intro-img-wrap2{
+            background: url("../images/main/intro/intro-img2.png") no-repeat center / cover;
+            width: 65vw;
+        }
+        .intro-img-wrap3{
+            background: url("../images/main/intro/intro-img3.png") no-repeat center / cover;
+            height: 90vw;
+            top: 0;
+        }
+    }
+    @include responsive("500"){
+        .intro-img-wrap1{
+            background: url("../images/main/intro/intro-img1.png") no-repeat 50% 30% / cover;
+            width: 69vw;
+            height: 92vw;
+            top: 90px;
+        }
+        .intro-img-wrap2{
+            background: url("../images/main/intro/intro-img2.png") no-repeat 50% 25% / cover;
+            width: 80vw;
+            height: 92vw;
+            top: 90px;
+        }
+        .intro-img-wrap3{
+            background: url("../images/main/intro/intro-img3.png") no-repeat center / cover;
+            width: 69vw;
+            height: 100vw;
+            top: 90px;
+        }
+    }
+    .intro-img{
+        width: 25.3516vw !important;
+        height: 100vh !important;
+        position: absolute;
+        z-index: 150;
+        left: 50%;
+        top: 48%;
+        transform: translate(-50%,100%);
+        overflow: visible;
+        animation: introImg 1.25s 4.75s ease forwards;
+
+        @include responsive("768"){
+            top: 50%;
+            z-index: 110;
+            width: 60vw !important;
+        }
+        @include responsive("500"){
+            top: 50%;
+            z-index: 110;
+            width: 74.353vw !important;
+        }
+
+        .swiper-slide{
+            height: 100vh !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 1s ease;
+            
+            .mo{
+                display: none;
+                
+                img{
+                    position: static;
+                    width: 110%;
+                    top: auto;
+                }
+            }
+            @include responsive("768"){
+                .mo{
+                    display: block;
+                }
+            }
+            @include responsive("500"){
+                .mo{
+                    display: block;
+                }
+            }
+        }
+        .swiper-slide[data-swiper-slide-index="2"]{
+            opacity: 0;
+        }
+        img{
+            width: 110%;
+            width: 100%;
+            
+            &.samwhapaper{
+                width: 110%;
+            }
+            @include responsive("768"){
+                width: 100%;
+                display: none;
+            }
+            @include responsive("500"){
+                width: 100%;
+                display: none;
+            }
+        }
+        &:nth-of-type(2){
+            img{
+                max-width: 120%;
+            }
+        }
+    }
+    .intro-number{
+        position: absolute;
+        bottom: 62px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 20px;
+        font-family: "NHaasGrotesk-medium";
+        font-weight: 500;
+        color: $red;
+        transition: 0.5s ease;
+        opacity: 0;
+        animation: fadeIn 0.5s 6s ease forwards;
+        width: 144px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include responsive("1920"){
+            font-size: 15px;
+        }
+        @include responsive("1024"){
+            font-size: 8px;
+            width: 60px;
+        }
+        @include responsive("768"){
+            display: none;
+        }
+        @include responsive("500"){
+            display: none;
+        }
+        span{
+            transition: 0.5s;
+
+            &.intro-loading{
+                margin: 0 14px;
+                width: 71px;
+                height: 1px;
+                background-color: $red;
+                display: inline-block;
+                position: relative;
+                
+                @include responsive("1920"){
+                    width: 56px;
+                    margin: 0 11px;
+                }
+
+                .intro-loading-active{
+                    position: absolute;
+                    top:-1px;
+                    left: 0;
+                    width: 0;
+                    height: 1px;
+                    background-color: $red;
+                    transition-timing-function: linear;
+
+                }
+            }
+        }
+        span:nth-child(2){
+            margin: 0 5px;
+        }
+    }
+    .intro-slide .intro-spin-wrap .intro-spin{
+        width: 8.359vw;
+        height: 8.359vw;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        bottom: -4.180vw;
+        @include responsive("1024"){
+            width: 8.789vw;
+            height: 8.789vw;
+        }
+        @include responsive("768"){
+            top: calc(-20vw / 2);
+            width: 20vw;
+            height: 20vw;
+            z-index: 50;
+        }
+        @include responsive("500"){
+            top: calc(-24.471vw / 2);
+            width: 24.471vw;
+            height: 24.471vw;
+            z-index: 50;
+        }
+        span{
+            width: 8.359vw;
+            height: 8.359vw;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            background: url("../images/main/intro-spin.png") no-repeat center / 80%;
+            background: url("../images/main/intro-spin.svg") no-repeat center / 80%;
+            opacity: 0;
+            animation: fadeIn 0.5s 6.5s ease forwards,
+                        spin 10s 2.5s linear forwards infinite;
+            @include responsive("1024"){
+                width: 8.789vw;
+                height: 8.789vw;
+            }
+            @include responsive("768"){
+                width: 20vw;
+                height: 20vw;
+            }
+            @include responsive("500"){
+                width: 24.471vw;
+                height: 24.471vw;
+            }
+        }
+        i{
+            width: 1.289vw;
+            height: 1.523vw;
+            display: block;
+            background: url("../images/icon/ico-introArrow.png") no-repeat center / cover;
+            background: url("../images/icon/ico-introArrow.svg") no-repeat center / cover;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            opacity: 0;
+            animation: fadeIn 0.5s 6.5s ease forwards;
+
+            @include responsive("768"){
+                width: 20px;
+                height: 24px;
+            }
+            @include responsive("500"){
+                width: 20px;
+                height: 24px;
+            }
+        }
+        .bg{
+            background-color: #262626;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transition: .6s cubic-bezier(.215, .61, .355, 1),
+                        opacity .6s cubic-bezier(.215,.61,.355,1),
+                        transform .6s cubic-bezier(.215,.61,.355,1),
+                        background-color .5s ease;
+                        opacity: 0;
+            animation: fadeIn-up 0.5s 6s ease forwards;
+        }
+        &:hover .bg{
+            width: 115%;
+            height: 115%;
+        }
+    }
+    &.show{
+        .intro-slide{
+            li{
+                span{
+                    width: calc(100vw - #{$inner2-2560});
+                    @include responsive("1920"){
+                        width: calc(100vw - #{$inner2-1920});
+                        width: calc(100vw - 16.875vw);
+                    }
+                    @include responsive("500"){
+                        width: calc(100vw - 10.400vw);
+                    }
+                }
+            }
+        }
+        .intro-img{
+            .swiper-slide[data-swiper-slide-index="2"]{
+                transition-delay: 6s;
+                opacity: 1;
+            }
+        }
+    }
+
+    &.ivory{
+        .intro-slide{
+            li{
+                span{
+                    &::after{
+                        opacity: 1;
+                    }
+                }
+                h2{
+                    color: $white;
+                }
+            }
+        }
+        .intro-number{
+            color: $white;
+            span{
+                &.intro-loading{
+                    background-color: $white;
+    
+                    .intro-loading-active{
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+    }
+}

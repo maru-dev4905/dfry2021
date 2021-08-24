@@ -1,8 +1,7 @@
-@import "./common/reset";
-@import "./common/fonts";
-@import "./common/variable";
-@import "./common/mixin";
-@import "./common/animation";
-
-@import "./import/main";
-@import "./import/intro";
+@import "./import/main/loading";
+@import "./import/main/intro";
+@import "./import/main/about";
+@import "./import/main/service";
+@import "./import/main/works";
+@import "./import/main/inquiry";
+@import "./import/partials/contact";

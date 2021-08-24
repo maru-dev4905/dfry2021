@@ -1,0 +1,52 @@
+@import "../../common/variable";
+@import "../../common/mixin";
+
+.otherPage{
+    background-color: $black;
+    width: 100vw;
+    height: 43.750vw;
+    padding-top: 8.984vw;
+
+    .otherPage-title{
+        width: calc(100vw - #{$inner2-2560});
+        margin: 0 auto 6.055vw auto ;
+
+        span{
+            width: 0;
+            height: 1px;
+            background-color: $white;
+            display: block;
+            margin-bottom: 15px;
+            transition: 0.75s;
+            transition-timing-function: ease-out;
+            transition-timing-function: cubic-bezier(0,0,.55,1);
+        }
+        p{
+            font-size: 20px;
+            font-family: "NHaasGrotesk-regular";
+            font-weight: 400;
+            color: $white;
+        }
+        &.is-inview span{
+            width: 100%;
+        }
+    }
+    a{
+        font-size: 6.641vw;
+        font-family: "NHaasGrotesk-regular";
+        font-weight: 400;
+        color: transparent;
+        -webkit-text-stroke: 1px $white;
+        line-height: 0;
+        padding: 2.461vw 0;
+        white-space: nowrap;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        animation: introSlideText2 30s linear infinite;
+        
+        span{
+            font-style: italic;
+        }
+    }
+}

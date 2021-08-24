@@ -1,28 +1,132 @@
-@keyframes slide1{
-    0% {
-        transform: translateZ(0);
+@keyframes introSlideText{
+    0%{
+        transform: translateX(0);
     }
-    
-    to {
-        transform: translate3d(-100vw,0,0);
+    100%{
+        transform: translateX(-200%);
     }
 }
-@keyframes slide2{
-    0% {
-        transform: translate3d(-100vw,0,0);
+@keyframes introSlideText2{
+    0%{
+        transform: translateX(0);
     }
-    
-    to {
-        transform: translateZ(0);
+    100%{
+        transform: translateX(200%);
+    }
+}
+@keyframes introAnimated{
+    0%{
+        transform: rotate(15deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes introAnimated2{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-15deg);
+    }
+}
+@keyframes spin{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes fadeOut-down{
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(50px);
+        opacity: 0;
     }
 }
 @keyframes fadeIn-up{
     0%{
-        transform: translateY(-20px);
+        transform: translateY(50px);
         opacity: 0;
     }
     100%{
         transform: translateY(0);
         opacity: 1;
+    }
+}
+@keyframes fadeIn-down{
+    0%{
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes fadeIn-right{
+    0%{
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes introBox{
+    0%{
+        transform: translate(-50%,100%);
+    }
+    100%{
+        transform: translate(-50%,-50%);
+    }
+}
+@include responsive("768"){
+    @keyframes introBox{
+        0%{
+            transform: translate(-50%,200%);
+        }
+        100%{
+            transform: translate(-50%,0%);
+        }
+    }
+}
+@include responsive("500"){
+    @keyframes introBox{
+        0%{
+            transform: translate(-50%,200%);
+        }
+        100%{
+            transform: translate(-50%,0);
+        }
+    }
+}
+@keyframes introImg{
+    0%{
+        transform: translate(-50%,calc(100%));
+    }
+    100%{
+        transform: translate(-50%,-50%);
     }
 }
