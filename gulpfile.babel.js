@@ -1,7 +1,8 @@
+const sass              = require('gulp-sass')(require('sass'));
+
 import gulp             from "gulp";
 import del              from "del";
 import image            from "gulp-imagemin";
-import sass             from "gulp-sass";
 import bro              from "gulp-bro";
 import babelify         from "babelify";
 import autoprefixer     from "gulp-autoprefixer";
